@@ -48,17 +48,20 @@ function onlyNums(event){
  * Scripts a Ejecutar cuando la página esté lista
  */
 $( ()=> {
-    for ( department of departments ){
+    'use strict';
+    for ( var department of departments ){
         $('#department').append(new  Option(department.name, department.code ) );
     }
 
     $( "#birthDay" ).datepicker({ changeYear: true});
+
 });
 
 /**
- * Esyablecer evento keypress para el código para validar solo números
+ * Establecer evento keypress para validar solo números en cuadros de texto
  */
 $('#code').on('keypress',onlyNums);
+$('#salary').on('keypress',onlyNums);
 
 
 $('#phone').on('keypress',()=>{
@@ -69,9 +72,10 @@ $('#phone').on('keypress',()=>{
         const number = $('#phone').val().concat(String.fromCharCode(code));
         if(/^\d{10}$/.test(number)){
             $('#phone').removeClass('is-invalid');
-            $('#phonelHelp').show();
+            //$('#phonelHelp').show();
         }else{
             $('#phone').addClass('is-invalid');
+            $('#phonelHelp').hide();
         }
     }
 });
@@ -87,8 +91,17 @@ $('#phone').on('blur', ()=>{
     }
 })
 
+$('#salary').on('keyup',()=>{
+    const value = $('#salary')
+    var chain = String(value.val()).replace(/\D/g, "");
+    const newValue = new Intl.NumberFormat('en-US').format(chain);
+    value.val( newValue );
+})
 
 $( "#frm" ).submit(function( event ) {
-    alert( "Enviar Formulario" );
-    event.preventDefault();
+    const validate = document.getElementById('frm').checkValidity();
+    if(validate){
+        alert('Formulario Validado para envio');
+    }
 });
+

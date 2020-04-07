@@ -9,105 +9,182 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/jquery-ui.min.css">
     <title>WorkShop Javascript</title>
+    <style>
+        .card-header{
+            background: #1488cc;
+            background: -webkit-linear-gradient(to right,#2b32b2,#1488cc);
+            background: linear-gradient(to right,#2b32b2,#1488cc);
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h1 style="text-align: center">Datos Estudiantes</h1>
-            </div>
-        </div>
+            <div class="col-lg-12">
+                <div class="card shadow-lg p-3 mb-5 bg-white">
+                    <div class="card-header"><h3>Datos Estudiantes</h3></div>
+                    <div class="card-body">
+                        <form id="frm" class="needs-validation" novalidate>
+                            <div class="form-group row">
+                                <label for="code" class="col-12 col-sm-3">C&oacute;digo</label>
+                                <input type="text" class="form-control col-12 col-sm-3" id="code" required>
+                                <div class="invalid-feedback">
+                                    Digite el C&oacute;digo
+                                </div>
+                                <div class="valid-feedback">
+                                    Bien Hecho!
+                                </div>
+                            </div>
 
-        <form id="frm">
-            <div class="form-group row">
-                <label for="code" class="col-2">C&oacute;digo</label>
-                <input type="text" class="form-control col-4" id="code" required>
-            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-sm-6">
+                                    <label for="firstName">Nombres</label>
+                                    <input type="text" id="firstName" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                        Digite los Nombres
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Bien Hecho!
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 col-sm-6">
+                                    <label for="lastName">Apellidos</label>
+                                    <input type="text" id="lastName" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                        Digite los Apellidos
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Bien Hecho!
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="form-row">
-                <div class="form-group col-12 col-sm-6">
-                    <label for="firstName">Nombres</label>
-                    <input type="text" id="firstName" class="form-control" required>
-                </div>
-                <div class="form-group col-12 col-sm-6">
-                    <label for="lastName">Apellidos</label>
-                    <input type="text" id="lastName" class="form-control" required>
-                </div>
-            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-sm-6">
+                                    <label for="department">Departamento</label>
+                                    <select id="department" class="form-control" required>
+                                        <option value="0">Seleccione Departamento...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-12 col-sm-6">
+                                    <label for="town">Municipio</label>
+                                    <select id="town" class="form-control" required>
 
-            <div class="form-row">
-                <div class="form-group col-12 col-sm-6">
-                    <label for="department">Departamento</label>
-                    <select id="department" class="form-control" required>
-                        <option>Seleccione Departamento...</option>
-                    </select>
-                </div>
-                <div class="form-group col-12 col-sm-6">
-                    <label for="town">Municipio</label>
-                    <select id="town" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
 
-                    </select>
-                </div>
-            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-sm-4">
+                                    <label for="phone">Tel&eacute;fono</label>
+                                    <input type="" id="phone" class="form-control" pattern="[0-9]{10}" aria-describedby="phoneHelp" required>
+                                    <small id="phonelHelp" class="form-text text-muted">Incluya 10 d&iacute;gitos Num&eacute;ricos</small>
+                                </div>
+                                <div class="form-group col-12 col-sm-4">
+                                    <label for="birthDay">Fecha de Nacimiento</label>
+                                    <input type="text" id="birthDay" class="form-control" pattern="\d\d/\d\d/\d{4}" autocomplete="off" required>
+                                </div>
+                                <div class="form-group col-12 col-sm-4">
+                                    <label>Género</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="F" checked>
+                                        <label class="form-check-label" for="inlineRadio1">Femenino</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="M">
+                                        <label class="form-check-label" for="inlineRadio2">Masculino</label>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="form-row">
-                <div class="form-group col-12 col-sm-4">
-                    <label for="birthDay">Fecha de Nacimiento</label>
-                    <input type="text" id="birthDay" class="form-control">
-                </div>
-                <div class="form-group col-12 col-sm-4">
-                    <label>Género</label><br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="F" checked>
-                        <label class="form-check-label" for="inlineRadio1">Femenino</label>
+                            <div class="form-row">
+                                <div class="col-12 col-sm">
+                                    <label for="email">Correo Electr&oacute;nido</label>
+                                    <input type="text" id="email" class="form-control" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                    <div class="invalid-feedback">
+                                        Digite direcci&oacute;n de Coreeo
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Bien Hecho!
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm">
+                                    <label for="salary">Cuota J&oacute;venes en Acci&oacute;n</label>
+                                    <input type="text" id="salary" class="form-control" required >
+                                    <div class="invalid-feedback">
+                                        Digite valor de la Cuota
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Bien Hecho!
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-12 col-sm-6">
+                                    <button type="submit" class="btn btn-success form-control">Enviar</button>
+                                </div>
+
+                                <div class="form-group col-12 col-sm-6">
+                                    <button type="reset" class="btn btn-info form-control">Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="M">
-                        <label class="form-check-label" for="inlineRadio2">Masculino</label>
+
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>C&oacute;digo</th>
+                                        <th>Nombre</th>
+                                        <th>Municipio</th>
+                                        <th>Tel&eacute;fono</th>
+                                        <th>Edad</th>
+                                        <th>G&eacute;nero</th>
+                                        <th>Correo</th>
+                                        <th>Apoyo<br>J&oacute;venes en Acci&oacute;n</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tblBody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-12 col-sm-4">
-                    <label for="phone">Tel&eacute;fono</label>
-                    <input type="" id="phone" class="form-control" pattern="[0-9]{10}" aria-describedby="phoneHelp">
-                    <small id="phonelHelp" class="form-text text-muted">Incluya 10 d&iacute;gitos Num&eacute;ricos</small>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-12 col-sm-6">
-                    <button type="submit" class="btn btn-success form-control">Enviar</button>
-                </div>
-
-                <div class="form-group col-12 col-sm-6">
-                    <button type="reset" class="btn btn-info form-control">Limpiar</button>
-                </div>
-            </div>
-        </form>
-
-        <div class="row">
-            <div class="col-12">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>C&oacute;digo</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Departamento</th>
-                        <th>Municipio</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tblBody">
-
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
+
     <script src="./js/jQuery_3.4.1.min.js"></script>
     <script src="./js/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </body>
 </html>
